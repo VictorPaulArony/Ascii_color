@@ -15,10 +15,11 @@ func IsColorFlagValid(mycolorflag string) bool {
 	return match
 }
 
-func Filenamevalidate(m string) string {
-	if !filenameExist(m) {
-		return "FILE DOES NOT EXSIT OR CHECK THE SPELLING OF YOUR FILES (e.g standard.txt)"
-	}
+func Filenamevalidate(m string) bool {
+	return filenameExist(m)
+}
+
+func NormalizeFilename(m string) string {
 	if m == "shadow" || m == "shadow.txt" {
 		return "shadow.txt"
 	} else if m == "thinkertoy" || m == "thinkertoy.txt" {

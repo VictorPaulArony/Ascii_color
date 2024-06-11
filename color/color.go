@@ -18,6 +18,16 @@ var colorMap = map[string]string{
 	"reset":  "\033[0m", // Reset color
 }
 
+// ApplyColor applies the specified color to the text
+func ApplyColor(text, letters, color string) string {
+	colorCode, exists := colorMap[strings.ToLower(color)]
+	if !exists {
+		fmt.Println("Invalid color specified.")
+		os.Exit(0)
+	}
+	return fmt.Sprintf("%s%s%s", colorCode, text, colorMap["reset"])
+}
+
 // DisplayText displays the provided text along with content lines
 func DisplayText(input string, contentLines []string, color string, letters string) {
 	if input == "" {
@@ -70,14 +80,4 @@ func PrintWord(word string, contentLines []string, color string, letters string)
 	}
 
 	fmt.Print(strings.Join(linesOfSlice, "\n"))
-}
-
-// ApplyColor applies the specified color to the text
-func ApplyColor(text, letters, color string) string {
-	colorCode, exists := colorMap[color]
-	if !exists {
-		fmt.Println("Invalid color specified.")
-		os.Exit(0)
-	}
-	return fmt.Sprintf("%s%s%s", colorCode, text, colorMap["reset"])
 }

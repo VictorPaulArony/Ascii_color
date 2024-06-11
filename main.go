@@ -113,24 +113,3 @@ func main() {
 		fmt.Println("Usage: go run . [OPTION] [STRING]")
 	}
 }
-
-// Filenamevalidate checks if the provided filename is valid
-func Filenamevalidate(m string) bool {
-	return filenameExist(m)
-}
-
-// NormalizeFilename converts the provided filename to its standard form
-func NormalizeFilename(m string) string {
-	if m == "shadow" || m == "shadow.txt" {
-		return "shadow.txt"
-	} else if m == "thinkertoy" || m == "thinkertoy.txt" {
-		return "thinkertoy.txt"
-	} else {
-		return "standard.txt"
-	}
-}
-
-// filenameExist checks if the filename exists in the allowed set
-func filenameExist(m string) bool {
-	return m == "shadow.txt" || m == "thinkertoy.txt" || m == "standard.txt" || m == "shadow" || m == "thinkertoy" || m == "standard"
-}

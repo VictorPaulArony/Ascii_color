@@ -17,11 +17,17 @@ func main() {
 
 	// args := flag.Args()
 	args := os.Args[1:]
+	if len(args) >1 && strings.HasPrefix(args[0], "-") {
+		if !valid()
+	}
 	if strings.HasPrefix(args[0], "-") {
 
 		// Define the color flag
 		colorFlag := flag.String("color", "", "Color to apply to the text")
 		flag.Parse()
+
+
+
 		// make the arguments dynamic to run all the ascii projects
 		if len(args) < 1 {
 			fmt.Println("Usage: go run . [OPTION] [STRING]")
@@ -46,10 +52,6 @@ func main() {
 			color.DisplayText(text, lines, *colorFlag, letters)
 		}
 
-		// if len(args) > 1 {
-		// 	letters = args[1]
-		// }
-
 		if *colorFlag == "" {
 			fmt.Println("Usage: go run . --color=<color> [letters to be colored] [STRING]")
 			return
@@ -58,3 +60,4 @@ func main() {
 		
 	}
 }
+

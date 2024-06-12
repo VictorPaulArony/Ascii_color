@@ -14,7 +14,6 @@ func IsColorFlagValid(mycolorflag string) bool {
 	}
 	return match
 }
-
 // Filenamevalidate checks if the provided filename is valid
 func Filenamevalidate(m string) bool {
 	return filenameExist(m)

@@ -58,9 +58,12 @@ func main() {
 			return
 		}
 		lines := strings.Split(string(data), "\n")
-
-		// Display the text with the specified color
-		color.DisplayText(text, lines, *colorFlag, letters)
+		if !strings.Contains(text, letters) {
+			return
+		} else {
+			// Display the text with the specified color
+			color.DisplayText(text, lines, *colorFlag, letters)
+		}
 
 	} else if len(args) >= 2 {
 		// If there are at least two arguments, process the input file and text
